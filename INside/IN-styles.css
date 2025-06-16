@@ -1,7 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Jersey+10&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@400&display=swap'); /* Importa ARAME Mono Regular */
 
+/* Estilos generales para escritorio */
 body {
-    font-family: 'Jersey 10', sans-serif; /* Aplica la fuente a todo el cuerpo */
+    font-family: 'Azeret Mono', monospace; /* Aplica la fuente ARAME Mono Regular */
     margin: 0;
     padding: 0;
     display: flex;
@@ -11,7 +12,7 @@ body {
     height: 100vh;
     overflow: hidden;
     position: relative;
-    background-color: black;
+    background-color: black; /* Fondo negro por defecto */
 }
 
 .background {
@@ -24,67 +25,113 @@ body {
     z-index: -2;
 }
 
-.overlay img {
-    width: 10%; /* Aumenta el ancho al 120% del contenedor */
-    height: auto; /* Mantiene la proporción */
+.overlay {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); /* Centra la imagen */
-    justify-content: center;
-    align-items: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Asegura que esté sobre el fondo pero debajo del contenido */
+    display: block; /* Visible por defecto en escritorio */
 }
 
 .overlay img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .menu-container {
     position: relative;
-    padding: 20px;
+    padding: 0 0px 20px 0px;
     text-align: center;
     z-index: 1;
-    width: 40%;
+    width: 55%;
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: white;
-    border-radius: 10px; /* Bordes ligeramente redondeados */
-    border: 1px solid black; /* Stroke negro */
+    background-image:
+        repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.1) 0, rgba(0, 0, 0, 0.1) 1px, transparent 1px, transparent 2px),
+        repeating-linear-gradient(90deg, rgba(0, 0, 0, 0.1) 0, rgba(0, 0, 0, 0.1) 1px, transparent 1px, transparent 2px);
+    background-size: 2px 2px;
+    border-radius: 10px;
+    border: 1px solid black;
+    box-shadow: 0 0 5px #000;
+    box-sizing: border-box;
 }
 
-
-.logo {
-    width: 100px; /* Ajusta el tamaño según lo que necesites */
-    margin-bottom: 20px; /* Espacio entre el logo y los ítems del menú */
-}
-
-.logo img {
+.pixel-header {
     width: 100%;
-    height: auto;
-    display: block;
-    filter: invert(1);
+    height: 50px;
+    background-color: #ccc;
+    background-image:
+        repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.1) 0, rgba(0, 0, 0, 0.1) 1px, transparent 1px, transparent 2px),
+        repeating-linear-gradient(90deg, rgba(0, 0, 0, 0.1) 0, rgba(0, 0, 0, 0.1) 1px, transparent 1px, transparent 2px);
+    background-size: 2px 2px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border: 2px solid #888;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    box-sizing: border-box;
 }
 
+.header-content {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
 
+.header-logo {
+    width: 30px;
+    height: auto;
+    filter: invert(1);
+    display: block;
+}
+
+.header-text {
+    color: black;
+    font-size: 1.2em;
+    font-weight: bold;
+}
 
 .menu-items {
     display: flex;
     justify-content: center;
-    gap: 40px;
+    gap: 70px;
+    padding: 20px;
 }
 
 .menu-item {
     text-align: center;
-    font-size: 32px; /* Aumenta el tamaño del texto debajo de los íconos */
-    margin-top: 0px;
-    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5); /* Sombra para el texto */
+    font-size: 17px;
+    color: black;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Ajuste para achicar el espacio entre icono y texto */
+.menu-item a p {
+    color: black;
+    text-decoration: none;
+    margin-top: 5px; /* Reducido de 0px a 5px para acercar el texto al icono */
+}
+
+.menu-item a {
+    color: black;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    display: block;
 }
 
 .menu-item img {
-    width: 180px;
+    width: 150px;
     height: auto;
 }
 
@@ -97,3 +144,84 @@ footer {
     z-index: 2;
 }
 
+.media-gif {
+    position: absolute;
+    top: -90px;
+    right: -50px;
+    width: 260px;
+    height: 180px;
+    border-radius: 8px;
+    overflow: hidden;
+    object-fit: contain;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+}
+
+.media-gif img {
+    width: auto;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+}
+
+/* --- Media Queries para dispositivos móviles --- */
+@media (max-width: 768px) {
+    body {
+        height: auto; /* Permite que el contenido determine la altura en móvil */
+        overflow: auto; /* Permite desplazamiento en móvil */
+        background-color: white; /* Fondo blanco en móvil */
+    }
+
+    .background {
+        display: none; /* Oculta el fondo glitch en móvil */
+    }
+
+    .overlay {
+        display: none; /* Oculta el marco overlay en móvil */
+    }
+
+    .menu-container {
+        width: 95%; /* Ocupa más ancho en móvil */
+        margin-top: 20px; /* Un poco de margen superior */
+        margin-bottom: 20px; /* Un poco de margen inferior */
+        border: 1px solid black; /* Asegura el borde */
+        box-shadow: none; /* Elimina la sombra para un aspecto más limpio en móvil */
+    }
+
+    .media-gif {
+        display: none; /* Oculta el GIF en móvil */
+    }
+
+    .pixel-header {
+        height: 40px; /* Un poco más pequeño el header */
+        padding-left: 5px; /* Reduce el padding */
+    }
+
+    .header-logo {
+        width: 25px; /* Logo más pequeño */
+    }
+
+    .header-text {
+        font-size: 1.2em; /* Texto del header más pequeño */
+    }
+
+    .menu-items {
+        flex-direction: column; /* Apila los elementos del menú verticalmente */
+        gap: 15px; /* Reduce el espacio entre elementos */
+        padding: 15px;
+    }
+
+    .menu-item {
+        font-size: 24px; /* Reduce el tamaño de fuente de los textos del menú */
+    }
+
+    .menu-item img {
+        width: 100px; /* Reduce el tamaño de los iconos en móvil */
+    }
+
+    /* Asegura que el footer se vea correctamente al final del contenido */
+    footer {
+        position: static; /* Cambia a posición estática para que fluya con el contenido */
+        margin-top: 20px; /* Agrega un margen superior */
+        color: black; /* Cambia el color del texto del footer a negro */
+    }
+}

@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Jersey+10&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@400&display=swap'); /* Importa ARAME Mono Regular */
 
 body {
-    font-family: 'Jersey 10', sans-serif;
+    font-family: 'Azeret Mono', monospace; /* Aplica la fuente ARAME Mono Regular */
     margin: 0;
     padding: 0;
     display: flex;
@@ -28,25 +28,31 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    position: absolute; /* Asegura que se posicione correctamente */
+    position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%); /* Centra la imagen */
-    z-index: -1; /* Asegura que esté por debajo del contenido pero por encima del fondo */
+    transform: translate(-50%, -50%);
+    z-index: -1;
 }
 
 .menu-container {
     position: relative;
-    padding: 20px;
+    padding: 0 0px 20px 0px;
     text-align: center;
     z-index: 1;
     width: 40%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: white;
+    background-color: #3333dc;
+    background-image:
+        repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.1) 0, rgba(0, 0, 0, 0.1) 1px, transparent 1px, transparent 2px),
+        repeating-linear-gradient(90deg, rgba(0, 0, 0, 0.1) 0, rgba(0, 0, 0, 0.1) 1px, transparent 1px, transparent 2px);
+    background-size: 2px 2px;
     border-radius: 10px;
     border: 1px solid black;
+    box-shadow: 0 0 5px #000;
+    box-sizing: border-box;
 }
 
 .logo {
@@ -69,11 +75,21 @@ body {
 }
 
 .discount-text {
-    font-size: 48px; /* Tamaño grande para el texto del descuento */
-    color: #FF0000; /* Un color llamativo para el descuento, puedes cambiarlo */
+    font-size: 20px;
+    color: white; /* Color blanco para "TRANSFERENCIA CONFIRMADA." */
     margin-bottom: 30px;
     text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.7);
     font-weight: bold;
+    text-align: center; /* Asegura que el texto esté centrado */
+}
+
+/* Nueva clase para la palabra "DESCUENTO" con glow rojo */
+.discount-word-red {
+    color: #FF0000; /* Color rojo */
+    text-shadow:
+        0 0 0px #FF0000, /* Pequeño glow */
+        0 0 5px #FF0000, /* Mediano glow */
+        0 0 13px #FF0000; /* Grande glow */
 }
 
 .menu-items.discount-options {
@@ -84,15 +100,15 @@ body {
 
 .menu-item {
     text-align: center;
-    font-size: 32px;
-    margin-top: 0px;
+    font-size: 18px;
+    margin-top: -10px;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
-    text-decoration: none; /* Quita el subrayado de los enlaces */
-    color: inherit; /* Hereda el color del padre o define uno */
+    text-decoration: none;
+    color: inherit;
 }
 
 .menu-item img {
-    width: 180px;
+    width: 130px;
     height: auto;
 }
 
@@ -107,10 +123,10 @@ footer {
 
 /* Estilos para el hover */
 .menu-item:hover {
-    transform: scale(1.05); /* Ligeramente más grande al pasar el mouse */
+    transform: scale(1.05);
     transition: transform 0.2s ease-in-out;
 }
 
 .menu-item p {
-    color: black; /* Asegura que el texto sea negro */
+    color: black;
 }
