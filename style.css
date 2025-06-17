@@ -1,4 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@400&display=swap'); /* Importa ARAME Mono Regular */
+
+
 body, html {
+    font-family: 'Azeret Mono', monospace; /* Aplica la fuente ARAME Mono Regular */
     margin: 0;
     padding: 0;
     width: 100%;

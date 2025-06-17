@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { id: 'shop', label: 'Shop', x: 971, y: 514, width: 94, height: 51, url: 'https://shop.exotic.com.ar/' },
         { id: 'bate', label: 'Bate', x: 1051, y: 578, width: 24, height: 66, url: 'https://shop.exotic.com.ar/' },
         { id: 'bolsos', label: 'Bolsos', x: 1102, y: 618, width: 55, height: 66, url: 'https://shop.exotic.com.ar/' },
-        { id: 'ropa', label: 'Ropa', x: 1138, y: 540, width: 70, height: 114, url: 'https://shop.exotic.com.ar/' }
+        { id: 'ropa', label: 'Ropa', x: 790, y: 470, width: 70, height: 114, url: 'https://shop.exotic.com.ar/' }
     ];
 
     const originalImageWidth = 1920;

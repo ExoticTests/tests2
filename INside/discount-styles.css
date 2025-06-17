@@ -24,6 +24,16 @@ body {
     z-index: -2;
 }
 
+.overlay {
+    position: absolute; /* Asegura que esté sobre el fondo pero debajo del contenido */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    display: block; /* Visible por defecto en escritorio */
+}
+
 .overlay img {
     width: 100%;
     height: 100%;
@@ -32,19 +42,18 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: -1;
 }
 
 .menu-container {
     position: relative;
-    padding: 0 0px 20px 0px;
+    padding: 0 0px 20px 0px; /* Reducido el padding para tablet/mobile */
     text-align: center;
     z-index: 1;
     width: 40%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #3333dc;
+    background-color: #3333dc; /* Color azul para el contenedor */
     background-image:
         repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.1) 0, rgba(0, 0, 0, 0.1) 1px, transparent 1px, transparent 2px),
         repeating-linear-gradient(90deg, rgba(0, 0, 0, 0.1) 0, rgba(0, 0, 0, 0.1) 1px, transparent 1px, transparent 2px);
@@ -58,6 +67,7 @@ body {
 .logo {
     width: 100px;
     margin-bottom: 20px;
+    margin-top: 20px; /* Añadido margen superior para el logo */
 }
 
 .logo img {
@@ -72,6 +82,7 @@ body {
     flex-direction: column;
     align-items: center;
     width: 100%;
+    padding-bottom: 20px; /* Asegura un padding inferior adecuado */
 }
 
 .discount-text {
@@ -81,6 +92,7 @@ body {
     text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.7);
     font-weight: bold;
     text-align: center; /* Asegura que el texto esté centrado */
+    padding: 0 10px; /* Añadir padding horizontal para evitar que el texto toque los bordes en móviles */
 }
 
 /* Nueva clase para la palabra "DESCUENTO" con glow rojo */
@@ -96,6 +108,7 @@ body {
     display: flex;
     justify-content: center;
     gap: 40px;
+    flex-wrap: wrap; /* Permite que los ítems se envuelvan a la siguiente línea en pantallas más pequeñas */
 }
 
 .menu-item {
@@ -104,7 +117,7 @@ body {
     margin-top: -10px;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
     text-decoration: none;
-    color: inherit;
+    color: white; /* Asegura que el texto del ítem sea blanco en escritorio */
 }
 
 .menu-item img {
@@ -127,6 +140,88 @@ footer {
     transition: transform 0.2s ease-in-out;
 }
 
-.menu-item p {
-    color: black;
+/* --- Media Queries para dispositivos móviles --- */
+@media (max-width: 768px) {
+    body {
+        height: 100vh; /* Vuelve a 100vh para que el fondo ocupe toda la altura */
+        overflow: hidden; /* Vuelve a hidden para el efecto de glitch */
+        background-color: black; /* Mantén el fondo negro para que el glitch GIF se vea */
+    }
+
+    .background {
+        display: block; /* Muestra el fondo glitch en móvil */
+    }
+
+    .overlay {
+        display: none; /* Oculta el marco overlay en móvil */
+    }
+
+    .menu-container {
+        width: 95%; /* Ocupa más ancho en móvil */
+        margin-top: 20px; /* Un poco de margen superior */
+        margin-bottom: 20px; /* Un poco de margen inferior */
+        border: 1px solid black; /* Asegura el borde */
+        box-shadow: none; /* Elimina la sombra para un aspecto más limpio en móvil */
+        padding: 15px 0; /* Ajusta el padding para móviles */
+    }
+
+    .logo {
+        width: 80px; /* Tamaño del logo más pequeño en móvil */
+        margin-bottom: 10px; /* Reduce el margen inferior del logo */
+    }
+
+    .discount-text {
+        font-size: 18px; /* Tamaño de fuente del texto de descuento más pequeño en móvil */
+        margin-bottom: 20px; /* Reduce el margen inferior del texto */
+    }
+
+    .menu-items.discount-options {
+        flex-direction: row; /* Mantén los elementos del menú en una fila */
+        justify-content: center; /* Centra los iconos horizontalmente */
+        gap: 20px; /* Reduce el espacio entre elementos para que quepan */
+        padding: 0; /* Elimina padding para que los ítems ocupen el ancho completo si es necesario */
+    }
+
+    .menu-item {
+        font-size: 20px; /* Tamaño de fuente de los textos del menú */
+        margin-top: 0; /* Elimina el margen superior negativo */
+        color: white; /* Mantén el color blanco para el texto del ítem */
+        width: auto; /* Permite que el ancho del ítem se ajuste al contenido */
+    }
+
+    .menu-item img {
+        width: 100px; /* Reduce el tamaño de los iconos en móvil */
+    }
+
+    /* Asegura que el footer se vea correctamente al final del contenido */
+    footer {
+        position: absolute; /* Vuelve a posición absoluta */
+        bottom: 50px; /* Mantiene la posición desde abajo */
+        color: white; /* Vuelve al color blanco para el footer */
+        width: 100%; /* Asegura que ocupe todo el ancho */
+    }
+}
+
+/* Media Query para resoluciones intermedias (ej. tablets) */
+@media (min-width: 769px) and (max-width: 992px) {
+    .menu-container {
+        width: 60%; /* Ajusta el ancho para tablets */
+    }
+
+    .discount-text {
+        font-size: 22px; /* Ajusta el tamaño de la fuente para tablets */
+    }
+
+    .menu-items.discount-options {
+        flex-direction: row; /* Asegura que sigan en fila para tablets */
+        gap: 30px; /* Ajusta el espacio entre elementos */
+    }
+
+    .menu-item img {
+        width: 110px; /* Ajusta el tamaño de los íconos para tablets */
+    }
+
+    .menu-item {
+        font-size: 20px; /* Ajusta el tamaño de la fuente para tablets */
+    }
 }
