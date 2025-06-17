@@ -22,8 +22,9 @@ body, html {
 }
 
 .page-logo {
-    max-height: 60px;
+    max-height: 120px;
     width: auto;
+    pointer-events: none;
 }
 
 /* --- ESTILOS DEL CONTENEDOR INTERACTIVO --- */
