@@ -212,3 +212,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
  });
+
+
+//Loading screen
+ window.addEventListener("load", () => {
+    const loadingScreen = document.getElementById("loading-screen");
+    if (loadingScreen) {
+        loadingScreen.style.display = "none";
+    }
+});

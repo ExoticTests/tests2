@@ -215,3 +215,25 @@ body, html {
     color: #ff4d4d;
     margin-left: 10px;
 }
+
+
+
+/* Pantalla de carga */
+#loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#logoAnim {
+    width: 200px;
+    height: auto;
+    image-rendering: pixelated;
+}
